@@ -38,7 +38,22 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          light: "hsl(var(--accent-light))",
         },
+        "green-deep": "hsl(var(--green-deep))",
+        "green-mid": "hsl(var(--green-mid))",
+        "green-soft": "hsl(var(--green-soft))",
+        "green-pale": "hsl(var(--green-pale))",
+        "green-mist": "hsl(var(--green-mist))",
+        cream: {
+          DEFAULT: "hsl(var(--cream))",
+          dark: "hsl(var(--cream-dark))",
+        },
+        "text-dark": "hsl(var(--text-dark))",
+        "text-mid": "hsl(var(--text-mid))",
+        "text-muted": "hsl(var(--text-muted))",
+        "blue-mist": "hsl(var(--blue-mist))",
+        "blue-mid": "hsl(var(--blue-mid))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
