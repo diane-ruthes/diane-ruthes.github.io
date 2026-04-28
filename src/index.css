@@ -2,104 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Design System — Diane Ruthes Portfolio
+   Forest greens + cream + warm accent. All colors HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand palette */
+    --green-deep: 147 39% 17%;       /* #1a3d2b */
+    --green-mid: 147 41% 30%;        /* #2d6a4f */
+    --green-soft: 145 50% 52%;       /* #52b788 */
+    --green-pale: 138 50% 81%;       /* #b7e4c7 */
+    --green-mist: 138 53% 90%;       /* #d8f3dc */
+    --cream: 42 36% 95%;             /* #f8f5ef */
+    --cream-dark: 42 24% 90%;        /* #ede8de */
+    --text-dark: 60 5% 11%;          /* #1c1c1a */
+    --text-mid: 60 5% 27%;           /* #4a4a42 */
+    --text-muted: 60 6% 51%;         /* #8a8a7e */
+    --accent: 38 47% 60%;            /* #c8a96e */
+    --accent-light: 38 70% 83%;      /* #f0ddb8 */
+    --blue-mist: 220 60% 94%;
+    --blue-mid: 219 62% 31%;
 
+    /* Semantic tokens (shadcn) */
+    --background: 42 36% 95%;
+    --foreground: 60 5% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 60 5% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 60 5% 11%;
+    --primary: 147 39% 17%;
+    --primary-foreground: 42 36% 95%;
+    --secondary: 138 53% 90%;
+    --secondary-foreground: 147 39% 17%;
+    --muted: 42 24% 90%;
+    --muted-foreground: 60 6% 51%;
+    --accent-foreground: 147 39% 17%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 42 24% 90%;
+    --input: 42 24% 90%;
+    --ring: 147 41% 30%;
+    --radius: 0.75rem;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --shadow-soft: 0 8px 30px -12px hsl(var(--green-deep) / 0.15);
+    --shadow-card: 0 1px 3px hsl(var(--green-deep) / 0.06), 0 4px 20px -8px hsl(var(--green-deep) / 0.08);
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
-    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: hsl(var(--cream));
+    color: hsl(var(--text-dark));
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
   }
 }
+
+@layer utilities {
+  .font-serif { font-family: 'DM Serif Display', Georgia, serif; }
+  .text-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .eyebrow-line::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+  }
+  .container-px { @apply px-[6vw] md:px-[8vw]; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-fade-up { animation: fadeUp 0.7s ease both; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
