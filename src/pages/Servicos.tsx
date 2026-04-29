@@ -14,7 +14,6 @@ const services = [
       "Documentação técnica e treinamento",
       "30 dias de suporte pós-entrega",
     ],
-    price: "A partir de R$ 2.500",
     deadline: "10–15 dias úteis",
     miniCase: "Já entreguei pipelines que processam +50k registros de parcelas em minutos.",
   },
@@ -28,7 +27,6 @@ const services = [
       "Filtros configurados por equipe, talhão e período",
       "Manual de uso e treinamento",
     ],
-    price: "A partir de R$ 2.200",
     deadline: "10–12 dias úteis",
     miniCase: "Dashboards já em produção para acompanhamento de qualidade de viveiro e inventário.",
   },
@@ -42,7 +40,6 @@ const services = [
       "Consolidação e envio de relatórios periódicos",
       "Documentação técnica completa",
     ],
-    price: "A partir de R$ 3.500",
     deadline: "15–20 dias úteis",
     miniCase: "Reduzi em mais de 80% o tempo de consolidação de relatórios mensais em projetos anteriores.",
   },
@@ -56,7 +53,6 @@ const services = [
       "Versões documentadas a cada entrega",
       "Suporte para scripts e apps já implantados",
     ],
-    price: "R$ 600 a R$ 1.200/mês",
     deadline: "Início imediato",
     miniCase: "Mantenho apps em produção há mais de um ano com evolução contínua.",
   },
@@ -130,7 +126,7 @@ const Servicos = () => {
 
               <div className="mt-auto pt-5 border-t border-cream-dark flex items-end justify-between gap-4 flex-wrap">
                 <div>
-                  <div className="font-serif text-xl text-green-deep">{s.price}</div>
+                  <div className="font-serif text-xl text-green-deep">Consultar valores</div>
                   <div className="text-xs text-text-muted mt-1">Prazo: {s.deadline}</div>
                 </div>
                 <a
