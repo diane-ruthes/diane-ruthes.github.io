@@ -1,4 +1,5 @@
-import { ExternalLink, Github, MessageCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ExternalLink, Github, MessageCircle, X } from "lucide-react";
 import { whatsappLink } from "@/lib/contact";
 import SectionHeader from "@/components/site/SectionHeader";
 
@@ -111,6 +112,22 @@ const scripts = [
 ];
 
 const Projetos = () => {
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!zoomImage) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setZoomImage(null);
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [zoomImage]);
+
   return (
     <>
       <section className="container-px pt-20 pb-12 bg-cream">
@@ -135,13 +152,21 @@ const Projetos = () => {
             className="bg-white rounded-3xl border border-black/5 overflow-hidden grid lg:grid-cols-2"
           >
             {f.image ? (
-              <div className="relative min-h-[320px] bg-cream-dark overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setZoomImage(f.image!)}
+                aria-label={`Ampliar imagem de ${f.title}`}
+                className="relative min-h-[320px] bg-cream-dark overflow-hidden cursor-zoom-in group block w-full p-0 border-0"
+              >
                 <img
                   src={f.image}
                   alt={f.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-              </div>
+                <span className="absolute bottom-3 right-3 bg-black/55 text-white text-[0.7rem] font-medium px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+                  🔍 Ampliar
+                </span>
+              </button>
             ) : (
               <div
                 className={`p-10 flex items-center justify-center min-h-[320px] relative overflow-hidden ${
@@ -275,6 +300,35 @@ const Projetos = () => {
           Conversar no WhatsApp
         </a>
       </section>
+
+      {/* LIGHTBOX */}
+      {zoomImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Imagem ampliada"
+          onClick={() => setZoomImage(null)}
+          className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center cursor-zoom-out p-4 animate-in fade-in"
+        >
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setZoomImage(null);
+            }}
+            aria-label="Fechar"
+            className="absolute top-5 right-5 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <img
+            src={zoomImage}
+            alt="Imagem ampliada"
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-[95vw] max-h-[92vh] object-contain rounded-lg shadow-2xl cursor-default"
+          />
+        </div>
+      )}
     </>
   );
 };
