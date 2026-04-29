@@ -109,22 +109,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* PROVA EM NÚMEROS */}
-      <section className="bg-green-deep py-24 container-px">
-        <SectionHeader
-          eyebrow="Resultados reais"
-          title={<>Números que <em className="not-italic italic text-green-soft">comprovam</em></>}
-          subtitle="Mesmo sem depoimentos publicados, os números falam pelos projetos entregues."
-          light
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
-          <ResultCard num="+80%" label="Redução de tempo em processos manuais de consolidação de inventário" />
-          <ResultCard num="+50k" label="Registros florestais processados em pipelines automáticos" />
-          <ResultCard num="6+" label="Dashboards Power BI publicados em produção" />
-          <ResultCard num="15+" label="Scripts Python e R em rotina de análise" />
-        </div>
-      </section>
-
       {/* CASES EM DESTAQUE */}
       <section className="container-px py-24 bg-cream-dark">
         <SectionHeader
