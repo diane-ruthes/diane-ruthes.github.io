@@ -129,10 +129,6 @@ const Servicos = () => {
                 ))}
               </ul>
 
-              <div className="bg-green-mist/50 rounded-lg px-4 py-3 text-xs text-green-deep mb-5 leading-relaxed">
-                <strong>Já entreguei algo parecido:</strong> {s.miniCase}
-              </div>
-
               <div className="mt-auto pt-5 border-t border-cream-dark flex items-end justify-between gap-4 flex-wrap">
                 <div>
                   <div className="font-serif text-xl text-green-deep">{s.price}</div>
