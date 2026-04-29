@@ -70,7 +70,6 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "Trabalha com quais formatos de arquivo?", a: "Excel (.xlsx, .xls), CSV, TXT, JSON, bancos SQL, APIs REST e arquivos shapefile/geográficos quando aplicável." },
   { q: "Atende remoto ou só presencial?", a: "100% remoto, com reuniões por Google Meet ou Teams. Atendo empresas de todo o Brasil." },
   { q: "Como funciona o pagamento?", a: "Em projetos: 50% no início e 50% na entrega. Em mensalidades de manutenção: faturado mês a mês." },
   { q: "E se meu caso for diferente do que está aqui?", a: "Esses são os formatos mais comuns, mas trabalho sob medida. Me conta seu desafio e vejo o melhor caminho." },
