@@ -11,6 +11,7 @@ type Featured = {
   appUrl?: string;
   repoUrl?: string;
   color: "blue" | "green";
+  image?: string;
 };
 
 const featured: Featured[] = [
@@ -25,6 +26,7 @@ const featured: Featured[] = [
     ],
     chips: ["Power BI", "DAX Avançado", "Modelagem de Dados", "Base Cadastral", "Performance"],
     color: "green",
+    image: "/PBI_Inventario.jpg",
   },
   {
     tag: "🌱 Dashboard Operacional · ETL",
@@ -37,6 +39,7 @@ const featured: Featured[] = [
     ],
     chips: ["Python", "Pandas", "ETL", "Power BI", "DAX", "Qualidade de Mudas", "Automação"],
     color: "blue",
+    image: "/report%20semanal.jpg",
   },
   {
     tag: "🛒 Data App · Python",
@@ -131,36 +134,46 @@ const Projetos = () => {
             key={f.title}
             className="bg-white rounded-3xl border border-black/5 overflow-hidden grid lg:grid-cols-2"
           >
-            <div
-              className={`p-10 flex items-center justify-center min-h-[320px] relative overflow-hidden ${
-                f.color === "blue"
-                  ? "bg-gradient-to-br from-[#1a2740] to-[#0f1e30]"
-                  : "bg-gradient-to-br from-[#1a4a1c] via-[#2c7a2e] to-[#3d9c40]"
-              }`}
-            >
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/5" />
-              <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-white/5" />
-              <div className="relative z-10 w-full max-w-xs">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-5">
-                  <div className="text-[0.65rem] text-cream/50 uppercase tracking-widest mb-3">
-                    Preview · KPIs
-                  </div>
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {f.metrics.map((m) => (
-                      <div
-                        key={m.k}
-                        className="bg-white/5 border border-white/10 rounded-lg p-3 text-center"
-                      >
-                        <div className="font-serif text-lg text-green-pale">{m.v}</div>
-                        <div className="text-[0.6rem] text-white/40 uppercase tracking-wider mt-1">
-                          {m.k}
+            {f.image ? (
+              <div className="relative min-h-[320px] bg-cream-dark overflow-hidden">
+                <img
+                  src={f.image}
+                  alt={f.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div
+                className={`p-10 flex items-center justify-center min-h-[320px] relative overflow-hidden ${
+                  f.color === "blue"
+                    ? "bg-gradient-to-br from-[#1a2740] to-[#0f1e30]"
+                    : "bg-gradient-to-br from-[#1a4a1c] via-[#2c7a2e] to-[#3d9c40]"
+                }`}
+              >
+                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/5" />
+                <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-white/5" />
+                <div className="relative z-10 w-full max-w-xs">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                    <div className="text-[0.65rem] text-cream/50 uppercase tracking-widest mb-3">
+                      Preview · KPIs
+                    </div>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {f.metrics.map((m) => (
+                        <div
+                          key={m.k}
+                          className="bg-white/5 border border-white/10 rounded-lg p-3 text-center"
+                        >
+                          <div className="font-serif text-lg text-green-pale">{m.v}</div>
+                          <div className="text-[0.6rem] text-white/40 uppercase tracking-wider mt-1">
+                            {m.k}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
 
             <div className="p-10 flex flex-col">
               <span className="text-[0.7rem] uppercase tracking-wider bg-green-mist text-green-mid px-3 py-1 rounded-full font-medium w-fit mb-4">
