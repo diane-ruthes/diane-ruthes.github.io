@@ -2,7 +2,42 @@ import { ExternalLink, Github, MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/contact";
 import SectionHeader from "@/components/site/SectionHeader";
 
-const featured = [
+type Featured = {
+  tag: string;
+  title: string;
+  desc: string;
+  metrics: { v: string; k: string }[];
+  chips: string[];
+  appUrl?: string;
+  repoUrl?: string;
+  color: "blue" | "green";
+};
+
+const featured: Featured[] = [
+  {
+    tag: "⭐ Projeto principal · Power BI",
+    title: "Dashboard de Inventário Florestal",
+    desc: "Dashboard estratégico em Power BI para análise de inventário florestal com acompanhamento de volume, idade e IMA em tempo real. Filtros dinâmicos por ano e integração com base cadastral.",
+    metrics: [
+      { v: "IMA", k: "Índice" },
+      { v: "DAX", k: "Avançado" },
+      { v: "Regional", k: "Escopo" },
+    ],
+    chips: ["Power BI", "DAX Avançado", "Modelagem de Dados", "Base Cadastral", "Performance"],
+    color: "green",
+  },
+  {
+    tag: "🌱 Dashboard Operacional · ETL",
+    title: "Controle de Laudos & Qualidade de Mudas",
+    desc: "Dashboard diário com ETL completo em Python para consolidar laudos enviados por prestadores, carregamento automatizado no Power BI e visualizações estratégicas para a gerência. Inclui report semanal de qualidade das mudas, gerado automaticamente.",
+    metrics: [
+      { v: "ETL", k: "Python" },
+      { v: "Diário", k: "Atualização" },
+      { v: "Auto", k: "Report semanal" },
+    ],
+    chips: ["Python", "Pandas", "ETL", "Power BI", "DAX", "Qualidade de Mudas", "Automação"],
+    color: "blue",
+  },
   {
     tag: "🛒 Data App · Python",
     title: "Análise de Varejo Americano — Superstore",
@@ -15,7 +50,7 @@ const featured = [
     chips: ["Python", "Streamlit", "Pandas", "Plotly", "SQLite", "FPDF2", "ETL"],
     appUrl: "https://superstore-dashboard-aqdqgh7dftvxkhjguyhex5.streamlit.app/",
     repoUrl: "https://github.com/diane-ruthes/superstore-dashboard",
-    color: "blue" as const,
+    color: "blue",
   },
   {
     tag: "🌳 R Shiny · Setor Florestal",
@@ -29,7 +64,7 @@ const featured = [
     chips: ["R", "Shiny", "dplyr", "readxl", "writexl", "DT", "janitor"],
     appUrl: "https://a4zpzb-diane-ruthes.shinyapps.io/App1/",
     repoUrl: "https://github.com/diane-ruthes/auditoria-florestal-shiny",
-    color: "green" as const,
+    color: "green",
   },
 ];
 
@@ -140,24 +175,30 @@ const Projetos = () => {
                   </span>
                 ))}
               </div>
-              <div className="mt-auto flex gap-3 flex-wrap">
-                <a
-                  href={f.appUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-deep text-cream text-sm font-medium px-5 py-2.5 rounded-full hover:bg-green-mid"
-                >
-                  <ExternalLink className="w-4 h-4" /> Acessar o app
-                </a>
-                <a
-                  href={f.repoUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 border border-cream-dark text-text-mid text-sm font-medium px-5 py-2.5 rounded-full hover:border-green-pale"
-                >
-                  <Github className="w-4 h-4" /> GitHub
-                </a>
-              </div>
+              {(f.appUrl || f.repoUrl) && (
+                <div className="mt-auto flex gap-3 flex-wrap">
+                  {f.appUrl && (
+                    <a
+                      href={f.appUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 bg-green-deep text-cream text-sm font-medium px-5 py-2.5 rounded-full hover:bg-green-mid"
+                    >
+                      <ExternalLink className="w-4 h-4" /> Acessar o app
+                    </a>
+                  )}
+                  {f.repoUrl && (
+                    <a
+                      href={f.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 border border-cream-dark text-text-mid text-sm font-medium px-5 py-2.5 rounded-full hover:border-green-pale"
+                    >
+                      <Github className="w-4 h-4" /> GitHub
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </article>
         ))}
