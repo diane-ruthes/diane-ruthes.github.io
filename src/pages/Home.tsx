@@ -117,20 +117,20 @@ const Home = () => {
         />
         <div className="grid md:grid-cols-2 gap-6 mt-12">
           <FeaturedMiniCase
-            tag="🛒 Data App · Python"
-            title="Análise de Varejo — Superstore"
-            desc="Dashboard interativo em Python + Streamlit com SQLite, ETL automatizado e exportação PDF."
-            chips={["Python", "Streamlit", "Plotly", "SQLite"]}
-            link="/projetos"
-            color="blue"
-          />
-          <FeaturedMiniCase
-            tag="🌳 R Shiny · Florestal"
-            title="Sistema de Auditoria Florestal IFC"
-            desc="App R + Shiny para comparar medições de equipes auditora e auditada conforme normas IFC."
-            chips={["R", "Shiny", "dplyr", "writexl"]}
+            tag="⭐ Power BI · Florestal"
+            title="Dashboard de Inventário Florestal"
+            desc="Dashboard estratégico em Power BI com volume, idade e IMA em tempo real, integração com base cadastral e DAX avançado."
+            chips={["Power BI", "DAX", "Modelagem"]}
             link="/projetos"
             color="green"
+          />
+          <FeaturedMiniCase
+            tag="🌱 Python · ETL"
+            title="Controle de Laudos & Qualidade de Mudas"
+            desc="ETL diário em Python para consolidar laudos de prestadores, com Power BI e report semanal automático."
+            chips={["Python", "Pandas", "Power BI"]}
+            link="/projetos"
+            color="blue"
           />
         </div>
         <div className="text-center mt-10">
