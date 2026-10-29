@@ -99,7 +99,7 @@ const Produtos = () => {
 
               <div className="mt-auto pt-6 border-t border-cream-dark flex items-end justify-between gap-4 flex-wrap">
                 <div>
-                  <div className="font-serif text-2xl text-green-deep">{p.price}</div>
+                  <div className="font-serif text-2xl text-green-deep">Consultar valores</div>
                   <div className="text-xs text-text-muted">{p.priceLabel}</div>
                   <div className="text-xs text-green-mid mt-1">{p.support}</div>
                 </div>

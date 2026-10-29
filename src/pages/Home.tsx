@@ -66,7 +66,7 @@ const Home = () => {
           <div className="relative z-10 grid grid-cols-2 gap-5 w-full max-w-sm">
             <StatCard num="10" label="Anos de carreira" />
             <StatCard num="7" label="Anos com Power BI & dados" />
-            <StatCard label="Projetos" desc="Vários scripts & dashboards em Python, R e Power BI" />
+            <StatCard num="10+" label="Projetos" desc="Scripts, apps & dashboards em Python, R e Power BI" />
             <div className="col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6">
               <div className="text-[0.78rem] text-green-pale/60 uppercase tracking-wider mb-2">Especialidade</div>
               <div className="text-sm text-white/70 leading-relaxed font-light">
@@ -123,6 +123,7 @@ const Home = () => {
             chips={["Power BI", "DAX", "Modelagem"]}
             link="/projetos"
             color="green"
+            image="/PBI_Inventario.jpg"
           />
           <FeaturedMiniCase
             tag="🌱 Python · ETL"
@@ -131,6 +132,7 @@ const Home = () => {
             chips={["Python", "Pandas", "Power BI"]}
             link="/projetos"
             color="blue"
+            image="/report%20semanal.jpg"
           />
         </div>
         <div className="text-center mt-10">
@@ -174,13 +176,6 @@ const StatCard = ({ num, label, desc }: { num?: string; label: string; desc?: st
   </div>
 );
 
-const ResultCard = ({ num, label }: { num: string; label: string }) => (
-  <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-    <div className="font-serif text-4xl text-green-pale leading-none mb-3">{num}</div>
-    <div className="text-sm text-cream/65 font-light leading-relaxed">{label}</div>
-  </div>
-);
-
 const PathCard = ({
   icon,
   title,
@@ -216,6 +211,7 @@ const FeaturedMiniCase = ({
   chips,
   link,
   color,
+  image,
 }: {
   tag: string;
   title: string;
@@ -223,11 +219,17 @@ const FeaturedMiniCase = ({
   chips: string[];
   link: string;
   color: "blue" | "green";
+  image?: string;
 }) => (
   <Link
     to={link}
     className="bg-white rounded-2xl border border-black/5 overflow-hidden flex flex-col hover:-translate-y-1 transition-all"
   >
+    {image ? (
+      <div className="h-52 bg-cream-dark overflow-hidden">
+        <img src={image} alt={title} loading="lazy" className="w-full h-full object-cover object-top" />
+      </div>
+    ) : (
     <div
       className={`p-8 ${
         color === "blue"
@@ -246,6 +248,7 @@ const FeaturedMiniCase = ({
         Preview do projeto
       </div>
     </div>
+    )}
     <div className="p-7">
       <span className="text-[0.7rem] uppercase tracking-wider text-green-mid bg-green-mist px-3 py-1 rounded-full font-medium">
         {tag}

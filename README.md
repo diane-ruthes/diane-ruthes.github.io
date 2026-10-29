@@ -1,3 +1,5 @@
-# Welcome to your Lovable project
+# Diane Ruthes · Dados & Automação Florestal
 
-TODO: Document your project here
+Portfólio e site de serviços: https://diane-ruthes.github.io/
+
+Feito com React + Vite + Tailwind, publicado no GitHub Pages via GitHub Actions.
