@@ -102,7 +102,8 @@ const Contato = () => {
             <Clock className="w-6 h-6 text-green-mid shrink-0 mt-1" />
             <div>
               <div className="text-sm font-medium text-green-deep mb-1">Horário de atendimento</div>
-              <div className="text-sm text-text-mid font-light">Segunda a sexta · 9h às 18h</div>
+              <div className="text-sm text-text-mid font-light">Segunda a sexta · 8h às 17h</div>
+              <div className="text-sm text-text-mid font-light">Sábado · 8h às 12h</div>
             </div>
           </div>
           <div className="flex items-start gap-4">
